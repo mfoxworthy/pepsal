@@ -3,6 +3,9 @@
 
 #include <sys/user.h>
 
+/* Program name */
+#define PROGRAM_NAME "pepsal"
+
 /* Minimal and maximal number of simultaneous connections */
 #define PEP_MIN_CONNS 128
 #define PEP_MAX_CONNS 4096
@@ -47,5 +50,19 @@
 
 #define container_of(ptr, type, member)                 \
     (type *)((char *)(ptr) - offsetof(type, member))
+
+#if (defined(__cplusplus) || defined(__GNUC__) || defined(__INTEL_COMPILER))
+#define __inline inline
+#else /* __cplusplus || __GNUC__ || __INTEL_COMPILER  */
+#define __inline
+#endif /* !__cplusplus && !__GNUC__ && !__INTEL_COMPILER */
+
+#ifndef UNUSED
+#if defined(__GNUC__)
+#define UNUSED(x) x __attribute__((unused))
+#else /* __GNUC__ */
+#define UNUSED(x)
+#endif /* !__GNUC__ */
+#endif /* !UNUSED */
 
 #endif /* !_PEPSDEFS_H */
