@@ -7,12 +7,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pepsal
-PKG_VERSION:=2.0.1
-PKG_RELEASE:=2
+PKG_VERSION:=v2.0.1-pre
+PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://gitlab.corp.ipsquared.com/mfoxworthy/pepsal/-/archive/2.0.1/
+PKG_SOURCE_URL:=https://github.com/mfoxworthy/pepsal/archive/refs/tags/
 PKG_MD5SUM:=skip
+PKG_MAINTAINER:=Michael Foxworthy <mike.foxworthy@viasat.com>
 
 PKG_INSTALL:=1
 
@@ -22,8 +23,8 @@ define Package/pepsal
 	TITLE:=Performance Enhancing Proxy
 	SECTION:=net
 	CATEGORY:=Network
-	URL:=https://gitlab.corp.ipsquared.com/mfoxworthy/pepsal
-	DEPENDS:=+libnetfilter-queue
+	URL:=https://github.com/mfoxworthy/pepsal
+	DEPENDS:=+libmnl +libnfnetlink +libnetfilter-queue
 endef
 
 define Package/pepsal/description
